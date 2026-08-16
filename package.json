@@ -1,0 +1,16 @@
+{
+  "name": "jadwal-pelayanan",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "validate": "node scripts/validate-project.mjs",
+    "test": "node --test tests/*.test.mjs",
+    "setup:apps-script": "bash scripts/setup-apps-script.sh",
+    "deploy": "node scripts/deploy.mjs",
+    "rollback": "node scripts/rollback.mjs"
+  },
+  "devDependencies": {
+    "@google/clasp": "3.3.0"
+  }
+}

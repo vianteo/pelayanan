@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#17324d">
+  <meta name="description" content="Jadwal Pelayanan GPdI PNiel Deltamas">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="icon" href="/icons/icon.svg" type="image/svg+xml">
+  <title>Jadwal Pelayanan</title>
+  <style>html,body,#app{width:100%;height:100%;margin:0;background:#f8fafb}body{font-family:system-ui,sans-serif}iframe{width:100%;height:100%;border:0;display:block}.setup{height:100%;display:grid;place-items:center;padding:24px;text-align:center;color:#17324d}.setup div{max-width:560px}.setup code{background:#e8eef2;padding:3px 7px;border-radius:6px}</style>
+</head>
+<body><div id="app"><div class="setup"><div><h1>Jadwal Pelayanan</h1><p>Aplikasi sedang disiapkan. Administrator perlu mengisi URL Apps Script pada <code>public/config.js</code>.</p></div></div></div>
+<script src="/config.js"></script>
+<script>
+  if(window.APP_CONFIG&&/^https:\/\//.test(window.APP_CONFIG.gasWebAppUrl)){const f=document.createElement('iframe');f.src=window.APP_CONFIG.gasWebAppUrl;f.title='Jadwal Pelayanan';f.allow='clipboard-write';document.getElementById('app').replaceChildren(f)}
+  if('serviceWorker' in navigator)navigator.serviceWorker.register('/sw.js');
+</script></body></html>

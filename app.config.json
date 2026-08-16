@@ -1,0 +1,11 @@
+{
+  "schemaVersion": 1,
+  "name": "Jadwal Pelayanan",
+  "projectType": "webapp",
+  "dataStore": "sheets",
+  "deploymentMode": "versioned",
+  "requiredScriptProperties": ["PRIMARY_SPREADSHEET_ID", "ADMIN_EMAIL", "APP_BASE_URL", "OTP_SIGNING_SECRET"],
+  "integrations": ["sheets", "gmail", "firebase-hosting"],
+  "privilegedOperationsApproved": false,
+  "managedDeploymentDescription": "chatgpt-managed-production"
+}
