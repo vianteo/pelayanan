@@ -1,0 +1,10 @@
+node_modules/
+.clasp.json
+.clasprc.json
+.firebaserc
+firebase-debug.log
+oauth*.json
+client_secret*.json
+credentials*.json
+.apps-script-setup/
+.DS_Store

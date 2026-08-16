@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <base target="_top">
+  <meta charset="utf-8">
+  <meta name="theme-color" content="#17324d">
+  <style><?!= include('Styles'); ?></style>
+</head>
+<body>
+  <header><div class="brand"><div class="mark">JP</div><div><strong>Jadwal Pelayanan</strong><small>GPdI PNiel Deltamas</small></div></div><button class="icon" onclick="openNav()" aria-label="Buka menu">☰</button></header>
+  <nav id="nav"><button onclick="route('jadwal')">Jadwal</button><button onclick="route('tukar')">Tukar Jadwal</button><button onclick="route('admin')">Admin</button></nav>
+  <main>
+    <section id="jadwal" class="page"><div class="hero"><p class="eyebrow">MELAYANI BERSAMA</p><h1>Temukan jadwal pelayanan Anda</h1><p>Jadwal terbaru, mudah dibuka dari mana saja.</p></div><div class="toolbar"><input id="search" type="search" placeholder="Cari ibadah, tugas, atau nama…" oninput="renderSchedules()"><button onclick="loadSchedules()">Muat ulang</button></div><div id="scheduleList" class="cards"></div></section>
+    <section id="tukar" class="page hidden"><div class="section-title"><h1>Tukar Jadwal</h1><p>Verifikasi email, lalu ajukan atau tanggapi pertukaran.</p></div><div id="swapAuth" class="panel"></div><div id="swapArea" class="hidden"></div></section>
+    <section id="admin" class="page hidden"><div class="section-title"><h1>Portal Admin</h1><p>Kelola jadwal dan persetujuan pertukaran.</p></div><div id="adminAuth" class="panel"></div><div id="adminArea" class="hidden"></div></section>
+  </main>
+  <div id="toast" role="status" aria-live="polite"></div>
+  <script>const INITIAL_ROUTE = '<?= initialRoute ?>';</script>
+  <script><?!= include('Client'); ?></script>
+</body>
+</html>

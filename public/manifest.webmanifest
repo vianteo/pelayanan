@@ -1,0 +1,13 @@
+{
+  "name": "Jadwal Pelayanan — GPdI PNiel Deltamas",
+  "short_name": "Pelayanan",
+  "description": "Jadwal dan pertukaran petugas pelayanan",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f8fafb",
+  "theme_color": "#17324d",
+  "lang": "id-ID",
+  "icons": [
+    { "src": "/icons/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}
