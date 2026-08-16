@@ -3,3 +3,4 @@ test('approved workflow states exist',()=>{const code=fs.readFileSync('src/SwapS
 test('public view excludes email',()=>{const code=fs.readFileSync('src/ScheduleService.gs','utf8');const body=code.match(/function publicSchedule_\(x\) \{([\s\S]*?)\n\}/)?.[1]||'';assert.doesNotMatch(body,/emailPetugas\s*:/)});
 test('PWA is installable',()=>{const manifest=JSON.parse(fs.readFileSync('public/manifest.webmanifest'));assert.equal(manifest.display,'standalone');assert.ok(manifest.icons.length);assert.match(fs.readFileSync('public/sw.js','utf8'),/addEventListener\('fetch'/)});
 test('admin identity is server-side',()=>{const auth=fs.readFileSync('src/Auth.gs','utf8');assert.match(auth,/getAdminEmail_\(\)/);assert.match(auth,/requireAdmin_/)});
+test('client JavaScript is valid',async()=>{const vm=await import('node:vm');assert.doesNotThrow(()=>new vm.Script(fs.readFileSync('src/Client.html','utf8')))});

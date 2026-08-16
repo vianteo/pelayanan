@@ -12,6 +12,7 @@ if(!Array.isArray(config.requiredScriptProperties)||config.requiredScriptPropert
 if(manifest.runtimeVersion!=='V8'||manifest.timeZone!=='Asia/Jakarta'||!Array.isArray(manifest.oauthScopes)||!manifest.oauthScopes.length)fail('Manifest harus memakai V8, zona waktu, dan OAuth scopes eksplisit.');
 const gs=fs.readdirSync(path.join(root,'src')).filter(x=>x.endsWith('.gs'));
 let all='';for(const file of gs){const code=read('src/'+file);new vm.Script(code,{filename:file});all+='\n'+code}
+new vm.Script(read('src/Client.html'),{filename:'Client.html'});
 if(!/function\s+doGet\s*\(/.test(all))fail('Web app memerlukan doGet.');
 if(/\beval\s*\(|new\s+Function\s*\(/.test(all))fail('eval/new Function dilarang.');
 const dc=JSON.parse(read('.devcontainer/devcontainer.json'));
