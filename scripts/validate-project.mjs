@@ -19,6 +19,9 @@ const dc=JSON.parse(read('.devcontainer/devcontainer.json'));
 if(!dc.features?.['ghcr.io/devcontainers/features/github-cli:1'])fail('Devcontainer harus menyediakan GitHub CLI.');
 const setup=read('scripts/setup-apps-script.sh');
 for(const marker of ['env -u GH_TOKEN -u GITHUB_TOKEN gh','actions/secrets/public-key','resume_file','node_modules/.bin/clasp','3.3.0'])if(!setup.includes(marker))fail('Bootstrap kehilangan kontrak: '+marker);
+const pwaSetup=read('scripts/setup-pwa.sh');
+for(const marker of ['node_modules/.bin/firebase','15.27.0','deploy --only hosting','EXPECTED_BRANCH=\'main\''])if(!pwaSetup.includes(marker))fail('Setup PWA kehilangan kontrak: '+marker);
+if(read('public/config.js').includes('__GAS_WEB_APP_URL__'))fail('URL Apps Script PWA masih placeholder.');
 const files=[];function walk(dir){for(const e of fs.readdirSync(dir,{withFileTypes:true})){if(['node_modules','.git'].includes(e.name))continue;const p=path.join(dir,e.name);e.isDirectory()?walk(p):files.push(p)}}walk(root);
 const secretPatterns=[/AIza[0-9A-Za-z_-]{30,}/,/gh[pousr]_[0-9A-Za-z]{30,}/,/"refresh_token"\s*:/,/-----BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY-----/,/(?:password|token|api_key)\s*=\s*["'][^"']{12,}["']/i];
 for(const file of files){const text=fs.readFileSync(file,'utf8');for(const p of secretPatterns)if(p.test(text))fail('Kemungkinan secret ditemukan di '+path.relative(root,file));}
